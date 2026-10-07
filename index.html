@@ -1,0 +1,2895 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Happy Teachers' Day — 10-Amethyst</title>
+
+
+<style>
+
+/* =========================================================
+   BASIC RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,255,200,.12),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(0,150,255,.12),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #061b1c,
+            #082f32,
+            #031416
+        );
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   BACKGROUND CIRCLES
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+.circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    opacity: .25;
+
+    animation:
+        floatCircle
+        10s
+        infinite
+        ease-in-out;
+
+}
+
+
+.circle:nth-child(1) {
+
+    width: 180px;
+
+    height: 180px;
+
+    background: #00ffd5;
+
+    top: 8%;
+
+    left: 5%;
+
+}
+
+
+.circle:nth-child(2) {
+
+    width: 250px;
+
+    height: 250px;
+
+    background: #008cff;
+
+    bottom: 5%;
+
+    right: 4%;
+
+    animation-delay: 2s;
+
+}
+
+
+.circle:nth-child(3) {
+
+    width: 100px;
+
+    height: 100px;
+
+    background: #00ff95;
+
+    top: 65%;
+
+    left: 30%;
+
+    animation-delay: 4s;
+
+}
+
+
+@keyframes floatCircle {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            translateX(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-35px)
+            translateX(20px);
+
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING PARTICLES
+========================================================= */
+
+.particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 4px;
+
+    height: 4px;
+
+    background: #9ffff0;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px #00ffe1;
+
+    animation:
+        particleMove
+        linear
+        infinite;
+
+}
+
+
+@keyframes particleMove {
+
+    from {
+
+        transform:
+            translateY(110vh);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+    80% {
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-10vh);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding:
+        35px
+        15px
+        60px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.top-title {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.top-title .code {
+
+    color: #62ffe5;
+
+    font-family: Consolas, monospace;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.top-title h1 {
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            48px
+        );
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 20px
+        rgba(0,255,220,.4);
+
+}
+
+
+.top-title p {
+
+    margin-top: 8px;
+
+    color: #b5d9d7;
+
+}
+
+
+/* =========================================================
+   BOOK AREA
+========================================================= */
+
+.book-area {
+
+    width:
+        min(
+            1100px,
+            96vw
+        );
+
+    height:
+        min(
+            650px,
+            70vh
+        );
+
+    min-height: 480px;
+
+    perspective: 2500px;
+
+    position: relative;
+
+}
+
+
+.book {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    transform-style:
+        preserve-3d;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    position: absolute;
+
+    width: 50%;
+
+    height: 100%;
+
+    top: 0;
+
+    right: 0;
+
+    transform-origin:
+        left center;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform
+        1.1s
+        cubic-bezier(
+            .65,
+            .05,
+            .36,
+            1
+        );
+
+    cursor: pointer;
+
+}
+
+
+.page.flipped {
+
+    transform:
+        rotateY(-180deg);
+
+}
+
+
+/* =========================================================
+   PAGE FRONT / BACK
+========================================================= */
+
+.page-front,
+.page-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(0,255,220,.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fafffc,
+            #e6f4f0
+        );
+
+    color: #123;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.45);
+
+}
+
+
+.page-front {
+
+    border-radius:
+        0
+        12px
+        12px
+        0;
+
+}
+
+
+.page-back {
+
+    transform:
+        rotateY(180deg);
+
+    border-radius:
+        12px
+        0
+        0
+        12px;
+
+}
+
+
+/* =========================================================
+   LEFT STATIC PAGE
+========================================================= */
+
+.left-page {
+
+    position: absolute;
+
+    width: 50%;
+
+    height: 100%;
+
+    left: 0;
+
+    top: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fafffc,
+            #e6f4f0
+        );
+
+    border:
+        1px solid
+        rgba(0,255,220,.25);
+
+    border-radius:
+        12px
+        0
+        0
+        12px;
+
+    color: #123;
+
+    overflow: hidden;
+
+    box-shadow:
+        -10px
+        15px
+        35px
+        rgba(0,0,0,.35);
+
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+
+.page-content {
+
+    height: 100%;
+
+    padding:
+        clamp(
+            22px,
+            4vw,
+            45px
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.page-number {
+
+    position: absolute;
+
+    bottom: 15px;
+
+    right: 22px;
+
+    font-size: 12px;
+
+    color: #65817d;
+
+}
+
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.cover {
+
+    height: 100%;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(0,255,210,.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #073c3b,
+            #021c20
+        );
+
+    color: white;
+
+    border-radius:
+        0
+        12px
+        12px
+        0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.cover-inner {
+
+    padding: 35px;
+
+}
+
+
+.cover-icon {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation:
+        bookFloat
+        3s
+        infinite
+        ease-in-out;
+
+}
+
+
+@keyframes bookFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(2deg);
+
+    }
+
+}
+
+
+.cover h2 {
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            50px
+        );
+
+    margin-bottom: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.cover h3 {
+
+    font-weight: 400;
+
+    color: #75ffe8;
+
+    font-family: Consolas, monospace;
+
+}
+
+
+.cover .line {
+
+    width: 80px;
+
+    height: 3px;
+
+    margin: 25px auto;
+
+    background: #56ffe5;
+
+    box-shadow:
+        0 0 15px
+        #00ffe1;
+
+}
+
+
+.cover small {
+
+    color: #b5d9d7;
+
+}
+
+
+/* =========================================================
+   GENERAL TITLES
+========================================================= */
+
+.big-title {
+
+    font-size:
+        clamp(
+            26px,
+            4vw,
+            42px
+        );
+
+    color: #075c58;
+
+    margin-bottom: 15px;
+
+}
+
+
+.gallery-title {
+
+    color: #075c58;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+
+    line-height: 1.8;
+
+    color: #334e4b;
+
+    font-size: 15px;
+
+}
+
+
+.message p {
+
+    margin-bottom: 14px;
+
+}
+
+
+.signature {
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+    color: #075c58;
+
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-left:
+        4px solid
+        #00a896;
+
+    background:
+        rgba(0,150,130,.07);
+
+    font-style: italic;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   TEACHER PHOTO
+========================================================= */
+
+.teacher-photo {
+
+    width:
+        min(
+            230px,
+            65%
+        );
+
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    margin:
+        0
+        auto
+        20px;
+
+    border:
+        5px solid
+        white;
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(0,0,0,.25),
+
+        0 0 25px
+        rgba(0,170,150,.25);
+
+}
+
+
+.teacher-name {
+
+    text-align: center;
+
+    font-size:
+        clamp(
+            22px,
+            3vw,
+            34px
+        );
+
+    color: #064f4c;
+
+}
+
+
+.teacher-role {
+
+    text-align: center;
+
+    color: #67817c;
+
+    margin-top: 6px;
+
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.photo-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 13px;
+
+}
+
+
+.gallery-photo {
+
+    width: 100%;
+
+    height: 165px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    border:
+        3px solid
+        white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.18);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+
+}
+
+
+.gallery-photo:hover {
+
+    transform:
+        scale(1.04);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,150,130,.3);
+
+}
+
+
+/* =========================================================
+   FEATURE PHOTO
+========================================================= */
+
+.feature-photo {
+
+    width: 100%;
+
+    height: 370px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border:
+        5px solid
+        white;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.2);
+
+}
+
+
+/* =========================================================
+   CODE BOX
+========================================================= */
+
+.code-box {
+
+    background: #071d20;
+
+    color: #a7fff1;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    font-family: Consolas, monospace;
+
+    line-height: 1.7;
+
+    box-shadow:
+        inset 0 0 25px
+        rgba(0,255,210,.08);
+
+    overflow: auto;
+
+}
+
+
+.keyword {
+
+    color: #ffcc66;
+
+}
+
+
+.function {
+
+    color: #79c7ff;
+
+}
+
+
+.string {
+
+    color: #8fffa8;
+
+}
+
+
+.comment {
+
+    color: #688d8a;
+
+}
+
+
+/* =========================================================
+   HEARTFELT LETTER — SLIDE 4
+========================================================= */
+
+.heartfelt-page {
+
+    justify-content:
+        flex-start;
+
+    padding:
+        25px
+        32px
+        25px;
+
+    overflow: hidden;
+
+}
+
+
+.heart-icon {
+
+    font-size: 34px;
+
+    text-align: center;
+
+    margin-bottom: 4px;
+
+}
+
+
+.heartfelt-title {
+
+    text-align: center;
+
+    color: #075c58;
+
+    font-size:
+        clamp(
+            22px,
+            3vw,
+            30px
+        );
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+
+.heartfelt-letter {
+
+    color: #334e4b;
+
+    font-size: 12.5px;
+
+    line-height: 1.38;
+
+    text-align: left;
+
+    max-width: 100%;
+
+}
+
+
+.heartfelt-letter p {
+
+    margin-bottom: 7px;
+
+}
+
+
+.heartfelt-letter strong {
+
+    color: #075c58;
+
+}
+
+
+.happy-teachers {
+
+    text-align: center;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: #008f80 !important;
+
+    margin-top: 8px;
+
+}
+
+
+.letter-signature {
+
+    text-align: center;
+
+    line-height: 1.4;
+
+    margin-top: 6px;
+
+}
+
+
+/* =========================================================
+   FINAL PAGE
+========================================================= */
+
+.final-page {
+
+    text-align: center;
+
+}
+
+
+.final-icon {
+
+    font-size: 75px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-page h2 {
+
+    color: #075c58;
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            45px
+        );
+
+    margin-bottom: 15px;
+
+}
+
+
+.final-page p {
+
+    color: #55716d;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   FINAL BACK PAGE
+========================================================= */
+
+.final-back {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(0,180,150,.12),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fafffc,
+            #dff2ed
+        );
+
+}
+
+
+.final-back .page-content {
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.final-back .thank-you {
+
+    font-size: 70px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-back h2 {
+
+    color: #075c58;
+
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            48px
+        );
+
+    margin-bottom: 15px;
+
+}
+
+
+.final-back p {
+
+    color: #55716d;
+
+    line-height: 1.8;
+
+    max-width: 420px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.controls {
+
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.control-btn {
+
+    border:
+        1px solid
+        rgba(0,255,220,.35);
+
+    background:
+        rgba(3,40,42,.8);
+
+    color: #aafff2;
+
+    padding:
+        12px
+        22px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: .25s;
+
+    backdrop-filter: blur(8px);
+
+}
+
+
+.control-btn:hover {
+
+    background:
+        rgba(0,120,110,.7);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,255,220,.12);
+
+}
+
+
+.control-btn:disabled {
+
+    opacity: .35;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+
+/* =========================================================
+   PAGE INDICATOR
+========================================================= */
+
+.page-indicator {
+
+    margin-top: 13px;
+
+    color: #8dbab5;
+
+    font-family: Consolas, monospace;
+
+    font-size: 13px;
+
+}
+
+
+.hint {
+
+    margin-top: 12px;
+
+    color: #6eaaa4;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .container {
+
+        padding-top: 20px;
+
+    }
+
+
+    .book-area {
+
+        height: 560px;
+
+        min-height: 0;
+
+    }
+
+
+    .left-page {
+
+        display: none;
+
+    }
+
+
+    .page {
+
+        width: 100%;
+
+        right: 0;
+
+    }
+
+
+    .page-front,
+    .page-back {
+
+        border-radius: 12px;
+
+    }
+
+
+    .page.flipped {
+
+        transform:
+            rotateY(-180deg)
+            translateX(100%);
+
+    }
+
+
+    .page-content {
+
+        padding: 28px;
+
+    }
+
+
+    .gallery-photo {
+
+        height: 145px;
+
+    }
+
+
+    .feature-photo {
+
+        height: 330px;
+
+    }
+
+
+    .heartfelt-page {
+
+        padding:
+            22px
+            25px;
+
+    }
+
+
+    .heartfelt-letter {
+
+        font-size: 12px;
+
+        line-height: 1.35;
+
+    }
+
+
+    .heartfelt-letter p {
+
+        margin-bottom: 6px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .book-area {
+
+        height: 520px;
+
+    }
+
+
+    .photo-grid {
+
+        gap: 8px;
+
+    }
+
+
+    .gallery-photo {
+
+        height: 125px;
+
+    }
+
+
+    .feature-photo {
+
+        height: 290px;
+
+    }
+
+
+    .cover-icon {
+
+        font-size: 55px;
+
+    }
+
+
+    .heartfelt-page {
+
+        padding:
+            18px
+            20px;
+
+    }
+
+
+    .heart-icon {
+
+        font-size: 28px;
+
+    }
+
+
+    .heartfelt-title {
+
+        font-size: 20px;
+
+    }
+
+
+    .heartfelt-letter {
+
+        font-size: 10.5px;
+
+        line-height: 1.3;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+
+</div>
+
+
+<div
+    class="particles"
+    id="particles">
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="top-title">
+
+        <div class="code">
+            &lt;teachers-day&gt;
+        </div>
+
+        <h1>
+            Happy Teachers' Day! 👩‍🏫📚
+        </h1>
+
+        <p>
+            A little digital gallery made with appreciation.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         BOOK
+    ================================================== -->
+
+    <div class="book-area">
+
+
+        <div
+            class="book"
+            id="book">
+
+
+            <!-- =================================================
+                 LEFT STATIC PAGE
+            ================================================= -->
+
+            <div class="left-page">
+
+                <div class="page-content">
+
+
+                    <div class="code-box">
+
+                        <span class="comment">
+                            // A special message
+                        </span>
+
+                        <br>
+
+                        <span class="keyword">
+                            function
+                        </span>
+
+                        <span class="function">
+                            thankTeacher
+                        </span>() {
+
+                        <br>
+
+                        &nbsp;&nbsp;
+
+                        <span class="keyword">
+                            let
+                        </span>
+
+                        respect =
+                        <span class="string">
+                            "∞"
+                        </span>;
+
+                        <br>
+
+                        &nbsp;&nbsp;
+
+                        <span class="keyword">
+                            let
+                        </span>
+
+                        gratitude =
+                        <span class="string">
+                            "100%"
+                        </span>;
+
+                        <br><br>
+
+                        &nbsp;&nbsp;
+
+                        <span class="keyword">
+                            return
+                        </span>
+
+                        <span class="string">
+                            "Thank you!"
+                        </span>;
+
+                        <br>
+
+                        }
+
+                    </div>
+
+
+                    <p class="quote">
+
+                        "A great teacher doesn't just
+                        teach lessons. They inspire
+                        students to keep learning."
+
+                    </p>
+
+
+                    <div class="page-number">
+                        10-Amethyst
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAGE 1 — COVER
+            ================================================== -->
+
+            <div class="page">
+
+
+                <div class="page-front cover">
+
+                    <div class="cover-inner">
+
+
+                        <div class="cover-icon">
+                            📖
+                        </div>
+
+
+                        <h2>
+
+                            For Our<br>
+                            Wonderful Teacher
+
+                        </h2>
+
+
+                        <div class="line">
+                        </div>
+
+
+                        <h3>
+                            &lt;TLE / PROGRAMMING&gt;
+                        </h3>
+
+
+                        <br>
+
+
+                        <small>
+                            A Teachers' Day Digital Gallery
+                            <br>
+                            From 10-Amethyst
+                        </small>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="page-back">
+
+                    <div class="page-content">
+
+
+                        <div class="big-title">
+                            Dear Teacher,
+                        </div>
+
+
+                        <div class="message">
+
+
+                            <p>
+
+                                Today is a special day to
+                                recognize the person who helps
+                                us learn, improve, and believe
+                                in ourselves.
+
+                            </p>
+
+
+                            <p>
+
+                                Thank you for sharing your
+                                knowledge, patience, time,
+                                and effort with us.
+
+                            </p>
+
+
+                            <p>
+
+                                This little digital book is
+                                our simple way of saying:
+
+                            </p>
+
+
+                            <h2
+                                style="
+                                color:#008f80;
+                                margin-top:10px;
+                                "
+                            >
+
+                                THANK YOU! 💚
+
+                            </h2>
+
+
+                        </div>
+
+
+                        <div class="page-number">
+                            1
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAGE 2 — TEACHER PHOTO
+            ================================================== -->
+
+            <div class="page">
+
+
+                <div class="page-front">
+
+                    <div class="page-content">
+
+
+                        <img
+                            src="images/teacher1.jpg"
+                            class="teacher-photo"
+                            alt="Our TLE Teacher"
+                        >
+
+
+                        <div class="teacher-name">
+
+                            Our Amazing Teacher 👩‍🏫
+
+                        </div>
+
+
+                        <div class="teacher-role">
+
+                            TLE / Programming Teacher
+
+                        </div>
+
+
+                        <div class="page-number">
+                            2
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="page-back">
+
+                    <div class="page-content">
+
+
+                        <div class="gallery-title">
+
+                            The Teacher Behind
+                            the Lessons
+
+                        </div>
+
+
+                        <div class="message">
+
+
+                            <p>
+
+                                Behind every activity,
+                                project, presentation,
+                                and lesson is a teacher
+                                who takes time to guide us.
+
+                            </p>
+
+
+                            <p>
+
+                                From learning the basics
+                                of programming to creating
+                                webpages, you've helped us
+                                discover skills we can use
+                                beyond the classroom.
+
+                            </p>
+
+
+                            <p>
+
+                                Your lessons are not just
+                                about code — they're also
+                                about creativity, patience,
+                                problem-solving, and
+                                believing that we can improve.
+
+                            </p>
+
+
+                        </div>
+
+
+                        <div class="page-number">
+                            3
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAGE 3 — TWO PHOTOS
+            ================================================== -->
+
+            <div class="page">
+
+
+                <div class="page-front">
+
+                    <div class="page-content">
+
+
+                        <div class="gallery-title">
+
+                            📸 Special Memories
+
+                        </div>
+
+
+                        <div class="photo-grid">
+
+
+                            <img
+                                src="images/teacher2.jpg"
+                                class="gallery-photo"
+                                alt="Teacher Memory 1"
+                            >
+
+
+                            <img
+                                src="images/teacher3.jpg"
+                                class="gallery-photo"
+                                alt="Teacher Memory 2"
+                            >
+
+
+                        </div>
+
+
+                        <p
+                            class="message"
+                            style="
+                            margin-top:18px;
+                            "
+                        >
+
+                            Every photo is a small reminder
+                            of the memories we made together.
+
+                        </p>
+
+
+                        <div class="page-number">
+                            4
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="page-back">
+
+                    <div class="page-content">
+
+
+                        <div class="gallery-title">
+
+                            💻 TLE Memories
+
+                        </div>
+
+
+                        <img
+                            src="images/teacher4.jpg"
+                            class="feature-photo"
+                            alt="TLE Teacher Memory"
+                        >
+
+
+                        <p
+                            class="message"
+                            style="
+                            margin-top:12px;
+                            "
+                        >
+
+                            Learning, creating, and making
+                            memories one lesson at a time.
+
+                        </p>
+
+
+                        <div class="page-number">
+                            5
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAGE 4 — PHOTO + HEARTFELT LETTER
+            ================================================== -->
+
+            <div class="page">
+
+
+                <!-- FRONT -->
+
+                <div class="page-front">
+
+                    <div class="page-content">
+
+
+                        <div class="gallery-title">
+
+                            🌟 One More Memory
+
+                        </div>
+
+
+                        <img
+                            src="images/teacher5.jpg"
+                            class="feature-photo"
+                            alt="Teacher Memory"
+                        >
+
+
+                        <p
+                            class="message"
+                            style="
+                            margin-top:15px;
+                            "
+                        >
+
+                            A picture worth remembering.
+
+                        </p>
+
+
+                        <div class="page-number">
+                            6
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- BACK — HEARTFELT LETTER -->
+
+                <div class="page-back">
+
+
+                    <div
+                        class="
+                        page-content
+                        heartfelt-page
+                        "
+                    >
+
+
+                        <div class="heart-icon">
+                            💌
+                        </div>
+
+
+                        <div class="heartfelt-title">
+
+                            A Letter From
+                            10-Amethyst
+
+                        </div>
+
+
+                        <div class="heartfelt-letter">
+
+
+                            <p>
+
+                                <strong>
+                                    Dear Maam Fabello,
+                                </strong>
+
+                            </p>
+
+
+                            <p>
+
+                                As the whole
+                                <strong>
+                                    10-Amethyst
+                                </strong>
+                                section, we would like
+                                to take this opportunity
+                                to say
+                                <strong>
+                                    thank you
+                                </strong>
+                                for everything you have
+                                done for us.
+
+                            </p>
+
+
+                            <p>
+
+                                We know that being a teacher
+                                is not always easy. There are
+                                times when our class can be
+                                noisy, our work can be
+                                incomplete, or we don't
+                                understand a lesson right
+                                away. But despite all of that,
+                                you continue to teach us,
+                                guide us, and give us chances
+                                to improve.
+
+                            </p>
+
+
+                            <p>
+
+                                Thank you for every lesson,
+                                activity, reminder, and every
+                                time you patiently explained
+                                something we didn't understand.
+                                These simple moments have become
+                                memories that we will remember
+                                as a class.
+
+                            </p>
+
+
+                            <p>
+
+                                Through TLE and programming,
+                                you have taught us more than
+                                just how to code or create
+                                webpages. You have also taught
+                                us to be creative, patient,
+                                responsible, and willing to
+                                keep trying when things don't
+                                go as planned.
+
+                            </p>
+
+
+                            <p>
+
+                                We may not always be the
+                                perfect students, but we hope
+                                you know that we truly
+                                appreciate your effort,
+                                patience, and dedication.
+
+                            </p>
+
+
+                            <p>
+
+                                From every student in
+                                <strong>
+                                    10-Amethyst
+                                </strong>,
+                                thank you for believing in us,
+                                guiding us, and being part of
+                                our journey.
+
+                            </p>
+
+
+                            <p class="happy-teachers">
+
+                                Happy Teachers' Day! 💚📚
+
+                            </p>
+
+
+                            <p class="letter-signature">
+
+                                With appreciation and gratitude,
+                                <br>
+
+                                <strong>
+                                    Your students,
+                                    10-Amethyst
+                                </strong>
+
+                                💚
+
+                            </p>
+
+
+                        </div>
+
+
+                        <div class="page-number">
+                            7
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FINAL PAGE
+            ================================================== -->
+
+            <div class="page final-page-holder">
+
+
+                <!-- FINAL FRONT -->
+
+                <div class="page-front">
+
+
+                    <div class="page-content final-page">
+
+
+                        <div class="final-icon">
+                            🌟
+                        </div>
+
+
+                        <h2>
+
+                            Happy Teachers Day Maam Fabello!
+
+                        </h2>
+
+
+                        <p>
+
+                           Dear Teacher,
+
+From all of us in 10-Amethyst, we want to say thank you for everything you do for us. Thank you for your patience, guidance, and for always taking the time to teach and help us.
+
+We may not always be the easiest class to handle, but we hope you know that we truly appreciate your efforts. The lessons, memories, and moments we share in your class will always be part of our Grade 10 journey.
+
+Thank you for believing in us and inspiring us to keep learning and improving.
+
+Happy Teachers' Day! 💚📚
+
+With appreciation,
+10-Amethyst
+
+
+                        </p>
+
+
+                        <br>
+
+
+                        <p>
+
+                            May you continue inspiring
+                            many more students.
+
+                        </p>
+
+
+                        <br>
+
+
+                        <h3
+                            style="
+                            color:#008f80;
+                            "
+                        >
+
+                            We appreciate you! 💚
+
+                        </h3>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FINAL BACK — FIXED
+                ================================================== -->
+
+                <div class="page-back final-back">
+
+
+                    <div class="page-content">
+
+
+                        <div class="thank-you">
+                            💚
+                        </div>
+
+
+                        <h2>
+
+                            Thank You!
+
+                        </h2>
+
+
+                        <p>
+
+                            This is the end of our little
+                            digital Teachers' Day gallery.
+
+                        </p>
+
+
+                        <br>
+
+
+                        <p>
+
+                            Thank you for every lesson,
+                            every reminder, every explanation,
+                            and every moment you spent helping
+                            us learn.
+
+                        </p>
+
+
+                        <br>
+
+
+                        <div
+                            class="code-box"
+                            style="
+                            text-align:left;
+                            "
+                        >
+
+
+                            <span class="comment">
+
+                                // End of program
+
+                            </span>
+
+
+                            <br>
+
+
+                            <span class="keyword">
+
+                                return
+
+                            </span>
+
+
+                            <span class="string">
+
+                                "Gratitude";
+
+                            </span>
+
+
+                        </div>
+
+
+                        <br>
+
+
+                        <h3
+                            style="
+                            color:#008f80;
+                            "
+                        >
+
+                            &lt;/ThankYou&gt; 💚
+
+                        </h3>
+
+
+                        <div class="page-number">
+                            8
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTROLS
+    ====================================================== -->
+
+    <div class="controls">
+
+
+        <button
+            class="control-btn"
+            id="prevBtn"
+            onclick="previousPage()"
+        >
+
+            ◀ Previous
+
+        </button>
+
+
+        <button
+            class="control-btn"
+            id="nextBtn"
+            onclick="nextPage()"
+        >
+
+            Next ▶
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="page-indicator"
+        id="pageIndicator"
+    >
+
+        Page 0 / 5
+
+    </div>
+
+
+    <div class="hint">
+
+        💡 Click Next or click the page to turn it.
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   PAGE TURNING
+========================================================= */
+
+
+const pages =
+    document.querySelectorAll(".page");
+
+
+let currentPage = 0;
+
+
+const nextBtn =
+    document.getElementById(
+        "nextBtn"
+    );
+
+
+const prevBtn =
+    document.getElementById(
+        "prevBtn"
+    );
+
+
+const pageIndicator =
+    document.getElementById(
+        "pageIndicator"
+    );
+
+
+/* =========================================================
+   INITIAL PAGE STACK
+========================================================= */
+
+
+pages.forEach(
+    (page, index) => {
+
+        page.style.zIndex =
+            pages.length - index;
+
+    }
+);
+
+
+/* =========================================================
+   UPDATE BUTTONS
+========================================================= */
+
+
+function updateUI() {
+
+
+    pageIndicator.textContent =
+
+        "Page " +
+        currentPage +
+        " / " +
+        pages.length;
+
+
+    prevBtn.disabled =
+        currentPage === 0;
+
+
+    nextBtn.disabled =
+        currentPage === pages.length;
+
+}
+
+
+/* =========================================================
+   NEXT PAGE
+========================================================= */
+
+
+function nextPage() {
+
+
+    if (
+        currentPage >=
+        pages.length
+    ) {
+
+        return;
+
+    }
+
+
+    const page =
+        pages[currentPage];
+
+
+    page.classList.add(
+        "flipped"
+    );
+
+
+    /*
+       Keep the page above
+       the other pages while
+       the animation happens.
+    */
+
+    page.style.zIndex =
+        pages.length + 10;
+
+
+    currentPage++;
+
+
+    setTimeout(
+        () => {
+
+            page.style.zIndex =
+                currentPage;
+
+        },
+        1100
+    );
+
+
+    updateUI();
+
+}
+
+
+/* =========================================================
+   PREVIOUS PAGE
+========================================================= */
+
+
+function previousPage() {
+
+
+    if (
+        currentPage <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    currentPage--;
+
+
+    const page =
+        pages[currentPage];
+
+
+    page.classList.remove(
+        "flipped"
+    );
+
+
+    page.style.zIndex =
+        pages.length -
+        currentPage;
+
+
+    updateUI();
+
+}
+
+
+/* =========================================================
+   CLICKING PAGES
+========================================================= */
+
+
+pages.forEach(
+    (page) => {
+
+
+        page.addEventListener(
+            "click",
+            function(event) {
+
+
+                /*
+                   Don't turn the page
+                   when clicking photos.
+                */
+
+                if (
+                    event.target.tagName ===
+                    "IMG"
+                ) {
+
+                    return;
+
+                }
+
+
+                const index =
+                    Array.from(
+                        pages
+                    ).indexOf(
+                        page
+                    );
+
+
+                /*
+                   If page is already
+                   flipped, allow going
+                   backward.
+                */
+
+                if (
+                    page.classList.contains(
+                        "flipped"
+                    )
+                ) {
+
+
+                    if (
+                        index <
+                        currentPage
+                    ) {
+
+
+                        currentPage =
+                            index;
+
+
+                        for (
+                            let i = 0;
+                            i < pages.length;
+                            i++
+                        ) {
+
+
+                            if (
+                                i >=
+                                currentPage
+                            ) {
+
+                                pages[i]
+                                    .classList
+                                    .remove(
+                                        "flipped"
+                                    );
+
+                            }
+
+                        }
+
+
+                        pages.forEach(
+                            (p, i) => {
+
+                                p.style.zIndex =
+                                    pages.length -
+                                    i;
+
+                            }
+                        );
+
+
+                        updateUI();
+
+                    }
+
+                }
+
+                else {
+
+
+                    if (
+                        index ===
+                        currentPage
+                    ) {
+
+                        nextPage();
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD CONTROLS
+========================================================= */
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            nextPage();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            previousPage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   FLOATING PARTICLES
+========================================================= */
+
+
+const particleContainer =
+    document.getElementById(
+        "particles"
+    );
+
+
+for (
+    let i = 0;
+    i < 45;
+    i++
+) {
+
+
+    const particle =
+        document.createElement(
+            "div"
+        );
+
+
+    particle.classList.add(
+        "particle"
+    );
+
+
+    particle.style.left =
+
+        Math.random() *
+        100 +
+        "%";
+
+
+    particle.style.animationDuration =
+
+        (
+            6 +
+            Math.random() *
+            10
+        ) +
+        "s";
+
+
+    particle.style.animationDelay =
+
+        (
+            -Math.random() *
+            15
+        ) +
+        "s";
+
+
+    particle.style.opacity =
+
+        Math.random();
+
+
+    particleContainer.appendChild(
+        particle
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+
+document
+    .querySelectorAll("img")
+    .forEach(
+        img => {
+
+
+            img.addEventListener(
+                "error",
+                function() {
+
+
+                    this.src =
+
+                        "data:image/svg+xml;charset=UTF-8," +
+
+                        encodeURIComponent(`
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="500"
+     height="500"
+     viewBox="0 0 500 500">
+
+    <rect
+        width="500"
+        height="500"
+        fill="#dcefeb"
+    />
+
+    <text
+        x="250"
+        y="230"
+        text-anchor="middle"
+        font-size="70"
+    >
+        📷
+    </text>
+
+    <text
+        x="250"
+        y="310"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="24"
+        fill="#075c58"
+    >
+        Add Teacher Photo
+    </text>
+
+</svg>
+
+                        `);
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+
+updateUI();
+
+</script>
+
+
+</body>
+
+</html>
