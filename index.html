@@ -999,33 +999,115 @@ body {
 
 /* =========================================================
    HEARTFELT LETTER — SLIDE 4
+   BEAUTIFUL TEAL + GOLD LETTER DESIGN
 ========================================================= */
 
 .heartfelt-page {
 
-    justify-content:
-        flex-start;
+    justify-content: center;
 
     padding:
-        25px
-        32px
-        25px;
+        22px
+        28px;
 
     overflow: hidden;
 
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(0,180,160,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(212,167,44,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #fafffc,
+            #e5f4ef
+        );
+
 }
 
+/* Elegant inner letter card */
+
+.heartfelt-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border:
+        1px solid
+        rgba(212,167,44,.38);
+
+    border-radius: 18px;
+
+    pointer-events: none;
+
+}
+
+/* Decorative corner accents */
+
+.heartfelt-page::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    right: 23px;
+
+    top: 15px;
+
+    color: #d4a72c;
+
+    font-size: 23px;
+
+    opacity: .75;
+
+}
 
 .heart-icon {
 
-    font-size: 34px;
+    font-size: 31px;
 
     text-align: center;
 
-    margin-bottom: 4px;
+    margin-bottom: 1px;
+
+    filter:
+        drop-shadow(
+            0 4px 8px
+            rgba(0,0,0,.15)
+        );
+
+    animation:
+        letterHeart
+        2.5s
+        ease-in-out
+        infinite;
 
 }
 
+@keyframes letterHeart {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-4px)
+            rotate(2deg);
+    }
+
+}
 
 .heartfelt-title {
 
@@ -1033,41 +1115,86 @@ body {
 
     color: #075c58;
 
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:
         clamp(
-            22px,
+            21px,
             3vw,
-            30px
+            29px
         );
 
     font-weight: bold;
 
-    margin-bottom: 10px;
-
-}
-
-
-.heartfelt-letter {
-
-    color: #334e4b;
-
-    font-size: 12.5px;
-
-    line-height: 1.38;
-
-    text-align: left;
-
-    max-width: 100%;
-
-}
-
-
-.heartfelt-letter p {
+    letter-spacing: .5px;
 
     margin-bottom: 7px;
 
 }
 
+/* Small divider under title */
+
+.heartfelt-title::after {
+
+    content: "──── ✦ ────";
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #c39a2e;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+.heartfelt-letter {
+
+    color: #334e4b;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 11.7px;
+
+    line-height: 1.34;
+
+    text-align: center;
+
+    max-width: 100%;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.heartfelt-letter p {
+
+    margin-bottom: 6px;
+
+}
+
+.heartfelt-letter p:first-child {
+
+    text-align: center;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+
+}
 
 .heartfelt-letter strong {
 
@@ -1075,29 +1202,121 @@ body {
 
 }
 
-
 .happy-teachers {
 
     text-align: center;
 
-    font-size: 17px;
+    font-size: 16px;
 
     font-weight: bold;
 
     color: #008f80 !important;
 
-    margin-top: 8px;
+    margin-top: 7px;
+
+    padding:
+        7px
+        12px;
+
+    border-top:
+        1px solid
+        rgba(212,167,44,.45);
+
+    border-bottom:
+        1px solid
+        rgba(212,167,44,.45);
 
 }
-
 
 .letter-signature {
 
     text-align: center;
 
-    line-height: 1.4;
+    line-height: 1.35;
 
     margin-top: 6px;
+
+    font-size: 11.5px;
+
+    color: #55716d;
+
+}
+
+.letter-signature strong {
+
+    color: #075c58;
+
+}
+
+@media (max-width: 750px) {
+
+    .heartfelt-page {
+
+        padding:
+            20px
+            22px;
+
+    }
+
+    .heartfelt-letter {
+
+        font-size: 11.2px;
+
+        line-height: 1.3;
+
+    }
+
+    .heartfelt-page::before {
+
+        inset: 11px;
+
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .heartfelt-page {
+
+        padding:
+            16px
+            18px;
+
+    }
+
+    .heart-icon {
+
+        font-size: 26px;
+
+    }
+
+    .heartfelt-title {
+
+        font-size: 19px;
+
+    }
+
+    .heartfelt-letter {
+
+        font-size: 9.8px;
+
+        line-height: 1.27;
+
+    }
+
+    .heartfelt-letter p {
+
+        margin-bottom: 5px;
+
+    }
+
+    .happy-teachers {
+
+        font-size: 14px;
+
+        padding: 5px 8px;
+
+    }
 
 }
 
@@ -1493,6 +1712,245 @@ body {
 
 }
 
+
+
+/* =========================================================
+   VIDEO MEMORIES PAGE
+========================================================= */
+
+.video-page {
+    background:
+        radial-gradient(circle at top, rgba(0, 143, 128, .18), transparent 55%),
+        linear-gradient(145deg, #fdfdf8, #e9f7f4);
+    border-radius: 14px;
+    padding: 24px 22px;
+    text-align: center;
+    color: #173f40;
+}
+
+.video-page::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 2px solid rgba(212, 175, 55, .55);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.video-title {
+    position: relative;
+    z-index: 1;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: #006f68;
+    margin-bottom: 7px;
+}
+
+.video-subtitle {
+    position: relative;
+    z-index: 1;
+    color: #52706f;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+/* =========================================================
+   FEATURED CLASS MESSAGE VIDEO
+========================================================= */
+
+.featured-video-card {
+    width: 92%;
+    margin: 10px auto 12px;
+    padding: 10px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #f8fff9, #e4f7f1);
+    border: 2px solid #c9a227;
+    box-shadow:
+        0 0 0 2px rgba(0,143,128,.08),
+        0 8px 24px rgba(0,60,60,.22);
+}
+
+.featured-video-heading {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #006f68;
+    margin-bottom: 7px;
+}
+
+.featured-video {
+    display: block;
+    width: 100%;
+    max-height: 205px;
+    object-fit: cover;
+    border-radius: 11px;
+    background: #071f20;
+    border: 2px solid rgba(0,143,128,.35);
+}
+
+.featured-video-caption {
+    margin-top: 7px;
+    font-family: Georgia, serif;
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: #315d59;
+}
+
+.video-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.video-card {
+    flex: 1 1 0;
+    min-width: 0;
+    background: rgba(255,255,255,.82);
+    border: 2px solid rgba(212,175,55,.7);
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 20px rgba(0,55,55,.16);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 9px;
+    background: #071f20;
+}
+
+.video-label {
+    margin-top: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #006f68;
+}
+
+@media (max-width: 700px) {
+    .featured-video-card {
+        width: 96%;
+        padding: 8px;
+    }
+
+    .featured-video {
+        max-height: 190px;
+    }
+
+    .featured-video-heading {
+        font-size: 13px;
+    }
+
+    .featured-video-caption {
+        font-size: 9.5px;
+    }
+
+
+    .video-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .video-title {
+        font-size: 21px;
+    }
+
+    .video-page {
+        padding: 20px 16px;
+    }
+}
+
+
+
+/* =========================================================
+   CREDITS — TEAL & GOLD FINALE
+========================================================= */
+.credits-section {
+    position: relative;
+    z-index: 2;
+    width: min(920px, calc(100% - 32px));
+    margin: 54px auto 40px;
+    padding: clamp(28px, 5vw, 54px);
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid rgba(224, 193, 102, .72);
+    border-radius: 26px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 255, 213, .12), transparent 45%),
+                linear-gradient(145deg, rgba(5, 38, 39, .97), rgba(3, 20, 22, .98));
+    box-shadow: 0 18px 55px rgba(0, 0, 0, .34), inset 0 0 0 5px rgba(224, 193, 102, .06);
+}
+.credits-section::before, .credits-section::after {
+    content: "✦";
+    position: absolute;
+    color: #e7c86e;
+    opacity: .75;
+    font-size: 22px;
+}
+.credits-section::before { top: 20px; left: 24px; }
+.credits-section::after { right: 24px; bottom: 20px; }
+.credits-kicker {
+    margin-bottom: 10px;
+    color: #8ce8d5;
+    font-size: .78rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+.credits-section h2 {
+    color: #e7c86e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: .08em;
+    margin-bottom: 12px;
+    text-shadow: 0 0 22px rgba(231, 200, 110, .18);
+}
+.credits-divider {
+    width: min(230px, 60%);
+    height: 1px;
+    margin: 0 auto 20px;
+    background: linear-gradient(90deg, transparent, #e7c86e, transparent);
+}
+.credits-intro {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    color: #d5e9e4;
+    line-height: 1.7;
+}
+.credits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 650px;
+    margin: 0 auto 26px;
+}
+.credit-card {
+    padding: 22px 16px;
+    border: 1px solid rgba(231, 200, 110, .32);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .035);
+}
+.credit-card .credit-icon { font-size: 1.7rem; margin-bottom: 9px; }
+.credit-card h3 { color: #8ce8d5; font-size: .95rem; margin-bottom: 8px; }
+.credit-card p { color: #fff; line-height: 1.6; }
+.credit-name { color: #e7c86e !important; font-weight: 700; }
+.credits-signoff {
+    color: #e7c86e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    font-style: italic;
+    line-height: 1.6;
+}
+.credits-footer { margin-top: 14px; color: #8ce8d5; font-size: .82rem; letter-spacing: .08em; }
+@media (max-width: 560px) {
+    .credits-section { margin-top: 36px; padding: 30px 18px; border-radius: 20px; }
+    .credits-grid { grid-template-columns: 1fr; gap: 12px; }
+    .credit-card { padding: 18px 14px; }
+}
+
 </style>
 
 </head>
@@ -1703,7 +2161,7 @@ body {
 
 
                         <div class="big-title">
-                            Dear Teacher,
+                            Dear Maam Fabello,
                         </div>
 
 
@@ -1777,7 +2235,7 @@ body {
 
 
                         <img
-                            src="Images/teacher1.jpg"
+                            src="images/teacher1.jpg"
                             class="teacher-photo"
                             alt="Our TLE Teacher"
                         >
@@ -1893,14 +2351,14 @@ body {
 
 
                             <img
-                                src="Images/teacher2.jpg"
+                                src="images/teacher2.jpg"
                                 class="gallery-photo"
                                 alt="Teacher Memory 1"
                             >
 
 
                             <img
-                                src="Images/teacher3.jpg"
+                                src="images/teacher3.jpg"
                                 class="gallery-photo"
                                 alt="Teacher Memory 2"
                             >
@@ -1945,7 +2403,7 @@ body {
 
 
                         <img
-                            src="Images/teacher4.jpg"
+                            src="images/teacher4.jpg"
                             class="feature-photo"
                             alt="TLE Teacher Memory"
                         >
@@ -1998,7 +2456,7 @@ body {
 
 
                         <img
-                            src="Images/teacher5.jpg"
+                            src="images/teacher5.jpg"
                             class="feature-photo"
                             alt="Teacher Memory"
                         >
@@ -2186,6 +2644,108 @@ body {
             </div>
 
 
+
+
+            <!-- =================================================
+                 VIDEO MEMORIES PAGE
+            ================================================== -->
+
+            <div class="page">
+
+                <div class="page-front">
+
+                    <div class="page-content video-page">
+
+                        <div class="video-title">
+                            💚 A Message From 10-Amethyst
+                        </div>
+
+                        <div class="video-subtitle">
+                            A special collection of memories from your students
+                        </div>
+
+                        <div class="featured-video-card">
+
+                            <div class="featured-video-heading">
+                                🎬 Our Most Special Message
+                            </div>
+
+                            <video class="featured-video"
+                                   controls
+                                   playsinline
+                                   preload="metadata">
+                                <source src="videos/class-message.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <div class="featured-video-caption">
+                                Every classmate, one word, one message,
+                                one unforgettable memory. 💚
+                            </div>
+
+                        </div>
+
+                        <div class="video-row">
+
+                            <div class="video-card">
+                                <video controls playsinline preload="metadata">
+                                    <source src="videos/video1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-label">🎥 Class Memory 1</div>
+                            </div>
+
+                            <div class="video-card">
+                                <video controls playsinline preload="metadata">
+                                    <source src="videos/video2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-label">🎥 Class Memory 2</div>
+                            </div>
+
+                        </div>
+
+                        <div class="page-number">
+                            7
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="page-back">
+
+                    <div class="page-content heartfelt-page">
+
+                        <div class="heart-icon">💚</div>
+
+                        <div class="heartfelt-title">
+                            Memories We Will Keep
+                        </div>
+
+                        <div class="heartfelt-letter">
+                            <p>
+                                Every video captures a small part of our
+                                time together as a class. Thank you for
+                                making our TLE lessons something we can
+                                look back on and remember.
+                            </p>
+
+                            <p class="happy-teachers">
+                                Thank you, Maam Fabello! 💚📚
+                            </p>
+                        </div>
+
+                        <div class="page-number">
+                            8
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
             <!-- =================================================
                  FINAL PAGE
             ================================================== -->
@@ -2208,26 +2768,15 @@ body {
 
                         <h2>
 
-                            Happy Teachers Day Maam Fabello!
+                            Happy Teachers' Day!
 
                         </h2>
 
 
                         <p>
 
-                           Dear Teacher,
-
-From all of us in 10-Amethyst, we want to say thank you for everything you do for us. Thank you for your patience, guidance, and for always taking the time to teach and help us.
-
-We may not always be the easiest class to handle, but we hope you know that we truly appreciate your efforts. The lessons, memories, and moments we share in your class will always be part of our Grade 10 journey.
-
-Thank you for believing in us and inspiring us to keep learning and improving.
-
-Happy Teachers' Day! 💚📚
-
-With appreciation,
-10-Amethyst
-
+                            Thank you for teaching,
+                            inspiring, and believing in us.
 
                         </p>
 
@@ -2425,6 +2974,34 @@ With appreciation,
 
 </div>
 
+
+<!-- =====================================================
+     FINAL CREDITS — AFTER THE FLIPPING BOOK
+===================================================== -->
+<section class="credits-section" aria-labelledby="credits-title">
+    <p class="credits-kicker">A little creation, a lot of gratitude</p>
+    <h2 id="credits-title">✦ Credits ✦</h2>
+    <div class="credits-divider"></div>
+    <p class="credits-intro">This digital gallery was made to celebrate a teacher who helps us learn, grow, and keep trying. Every page and memory carries our appreciation.</p>
+
+    <div class="credits-grid">
+        <div class="credit-card">
+            <div class="credit-icon" aria-hidden="true">💻</div>
+            <h3>Website Developer</h3>
+            <p class="credit-name">Sean Cabantog</p>
+            <p>For designing and putting this digital gallery together.</p>
+        </div>
+        <div class="credit-card">
+            <div class="credit-icon" aria-hidden="true">💚</div>
+            <h3>With Appreciation From</h3>
+            <p class="credit-name">The Whole 10-Amethyst Class</p>
+            <p>For the memories, messages, and gratitude shared with our teacher.</p>
+        </div>
+    </div>
+
+    <p class="credits-signoff">Made with gratitude, from 10-Amethyst 💚</p>
+    <p class="credits-footer">END OF OUR LITTLE DIGITAL GALLERY</p>
+</section>
 
 <script>
 
